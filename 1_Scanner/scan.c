@@ -56,9 +56,13 @@ static struct
     { char* str;
       TokenType tok;
     } reservedWords[MAXRESERVED]
-   = {{"if",IF},{"then",THEN},{"else",ELSE},{"end",END},
-      {"repeat",REPEAT},{"until",UNTIL},{"read",READ},
-      {"write",WRITE}};
+   = {{"if",IF},
+      {"else",ELSE},
+      {"while",WHILE},
+      {"return",RETURN},
+      {"int",INT},
+      {"void",VOID}
+  };
 
 /* lookup an identifier to see if it is a reserved word */
 /* uses linear search */
@@ -94,7 +98,7 @@ TokenType getToken(void)
            state = INNUM;
          else if (isalpha(c))
            state = INID;
-         else if (c == ':')
+         else if (c == '=')
            state = INASSIGN;
          else if ((c == ' ') || (c == '\t') || (c == '\n'))
            save = FALSE;
@@ -153,12 +157,13 @@ TokenType getToken(void)
        case INASSIGN:
          state = DONE;
          if (c == '=')
-           currentToken = ASSIGN;
+           currentToken = EQ;
          else
          { /* backup in the input */
            ungetNextChar();
            save = FALSE;
-           currentToken = ERROR;
+           state = DONE;
+           currentToken = ASSIGN;
          }
          break;
        case INNUM:
