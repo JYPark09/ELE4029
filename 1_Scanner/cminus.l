@@ -16,7 +16,7 @@ char tokenString[MAXTOKENLEN+1];
 digit       [0-9]
 number      {digit}+
 letter      [a-zA-Z]
-identifier  {letter}+
+identifier  {letter}({letter}|{digit})*
 newline     \n
 whitespace  [ \t]+
 
@@ -41,17 +41,23 @@ whitespace  [ \t]+
 "/"             {return OVER;}
 "("             {return LPAREN;}
 ")"             {return RPAREN;}
+"["             {return LBRACE;}
+"]"             {return RBRACE;}
+"{"             {return LCURLY;}
+"}"             {return RCURLY;}
 ";"             {return SEMI;}
+","             {return COMMA;}
 {number}        {return NUM;}
 {identifier}    {return ID;}
 {newline}       {lineno++;}
 {whitespace}    {/* skip whitespace */}
-"{"             { char c;
+"/*"            { char c, pre;
                   do
-                  { c = input();
+                  { pre = c;
+                    c = input();
                     if (c == EOF) break;
                     if (c == '\n') lineno++;
-                  } while (c != '}');
+                  } while (pre != '*' || c != '/');
                 }
 .               {return ERROR;}
 
