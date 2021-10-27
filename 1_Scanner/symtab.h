@@ -1,6 +1,6 @@
 /****************************************************/
 /* File: symtab.h                                   */
-/* Symbol table interface for the TINY compiler     */
+/* Symbol table interface for the C-MINUS compile   */
 /* (allows only one symbol table)                   */
 /* Compiler Construction: Principles and Practice   */
 /* Kenneth C. Louden                                */

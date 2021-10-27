@@ -1,7 +1,7 @@
 /****************************************************/
 /* File: analyze.c                                  */
 /* Semantic analyzer implementation                 */
-/* for the TINY compiler                            */
+/* for the C-MINUS compiler                         */
 /* Compiler Construction: Principles and Practice   */
 /* Kenneth C. Louden                                */
 /****************************************************/

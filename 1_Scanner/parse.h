@@ -1,6 +1,6 @@
 /****************************************************/
 /* File: parse.h                                    */
-/* The parser interface for the TINY compiler       */
+/* The parser interface for the C-MINUS compiler    */
 /* Compiler Construction: Principles and Practice   */
 /* Kenneth C. Louden                                */
 /****************************************************/

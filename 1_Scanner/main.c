@@ -1,6 +1,6 @@
 /****************************************************/
 /* File: main.c                                     */
-/* Main program for TINY compiler                   */
+/* Main program for C-MINUS compiler                */
 /* Compiler Construction: Principles and Practice   */
 /* Kenneth C. Louden                                */
 /****************************************************/
@@ -61,7 +61,7 @@ main( int argc, char * argv[] )
     exit(1);
   }
   listing = stdout; /* send listing to screen */
-  fprintf(listing,"\nTINY COMPILATION: %s\n",pgm);
+  fprintf(listing,"\nC-MINUS COMPILATION: %s\n",pgm);
 #if NO_PARSE
   while (getToken()!=ENDFILE);
 #else

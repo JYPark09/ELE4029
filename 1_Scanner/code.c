@@ -1,7 +1,7 @@
 /****************************************************/
 /* File: code.c                                     */
 /* TM Code emitting utilities                       */
-/* implementation for the TINY compiler             */
+/* implementation for the C-MINUS compiler          */
 /* Compiler Construction: Principles and Practice   */
 /* Kenneth C. Louden                                */
 /****************************************************/

@@ -1,9 +1,9 @@
-/****************************************************/
-/* File: cgen.h                                     */
-/* The code generator interface to the TINY compiler*/
-/* Compiler Construction: Principles and Practice   */
-/* Kenneth C. Louden                                */
-/****************************************************/
+/*******************************************************/
+/* File: cgen.h                                        */
+/* The code generator interface to the C-MINUS compiler*/
+/* Compiler Construction: Principles and Practice      */
+/* Kenneth C. Louden                                   */
+/*******************************************************/
 
 #ifndef _CGEN_H_
 #define _CGEN_H_

@@ -1,6 +1,6 @@
 /****************************************************/
 /* File: code.h                                     */
-/* Code emitting utilities for the TINY compiler    */
+/* Code emitting utilities for the C-MINUS compiler */
 /* and interface to the TM machine                  */
 /* Compiler Construction: Principles and Practice   */
 /* Kenneth C. Louden                                */

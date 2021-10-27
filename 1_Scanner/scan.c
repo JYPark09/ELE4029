@@ -1,9 +1,9 @@
-/****************************************************/
-/* File: scan.c                                     */
-/* The scanner implementation for the TINY compiler */
-/* Compiler Construction: Principles and Practice   */
-/* Kenneth C. Louden                                */
-/****************************************************/
+/*******************************************************/
+/* File: scan.c                                        */
+/* The scanner implementation for the C-MINUS compiler */
+/* Compiler Construction: Principles and Practice      */
+/* Kenneth C. Louden                                   */
+/*******************************************************/
 
 #include "globals.h"
 #include "util.h"
