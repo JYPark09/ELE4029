@@ -1,0 +1,8 @@
+int	foo1(int	v, int	z)
+{
+	/* *********************** */
+	/* Hi/*/
+
+	foo	(	v, z); /* call foo */
+    /* call foo2 */ foo(z, v);
+}
