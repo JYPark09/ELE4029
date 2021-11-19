@@ -1,7 +1,0 @@
-void b[5];
-int a;
-
-int test(void)
-{
-
-}
