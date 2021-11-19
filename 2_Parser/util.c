@@ -167,6 +167,28 @@ void printTree( TreeNode * tree )
           printType(tree->type);
           fprintf(listing,"\n");
           break;
+        case CompoundK:
+          fprintf(listing, "Compound Statement:\n");
+          break;
+        case ReturnK:
+          if (tree->child[0] != NULL)
+          {
+            fprintf(listing, "Return Statement:\n");
+          }
+          else
+          {
+            fprintf(listing, "Non-value Return Statement\n");
+          }
+          break;
+        case WhileK:
+          fprintf(listing, "While Statement:\n");
+          break;
+        case IfK:
+          fprintf(listing, "If Statement:\n");
+          break;
+        case IfElseK:
+          fprintf(listing, "If-Else Statement:\n");
+          break;
         default:
           fprintf(listing,"Unknown StmtNode kind\n");
           break;
@@ -181,8 +203,14 @@ void printTree( TreeNode * tree )
         case ConstK:
           fprintf(listing,"Const: %d\n",tree->attr.val);
           break;
-        case IdK:
-          fprintf(listing,"Id: %s\n",tree->attr.name);
+        case AssignK:
+          fprintf(listing, "Assign:\n");
+          break;
+        case VarAccessK:
+          fprintf(listing, "Variable: name = %s\n", tree->attr.name);
+          break;
+        case CallK:
+          fprintf(listing, "Call: function name = %s\n", tree->attr.name);
           break;
         default:
           fprintf(listing,"Unknown ExpNode kind\n");
