@@ -1,4 +1,8 @@
 cminus_cimpl
 cminus_lex
+cminus_parser
 lex.yy.c
+y.tab.c
+y.tab.h
+y.output
 *.o
