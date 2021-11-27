@@ -119,7 +119,10 @@ fun_declaration : type_specifier ID
 params : param_list
         { $$ = $1; }
       | VOID
-        { $$ = newStmtNode(VoidParamK); }
+        {
+          $$ = newStmtNode(VoidParamK);
+          $$->lineno = lineno;
+        }
       ;
 
 param_list : param_list COMMA param
@@ -140,16 +143,19 @@ param : type_specifier ID
         {
           $$ = $1;
           $$->attr.name = copyString(tokenString[tokenBit]);
+          $$->lineno = lineno;
         }
       | type_specifier ID
         {
           savedName[saveNamePos++] = copyString(tokenString[tokenBit]);
+          savedLineNo[saveLineNoPos++] = lineno;
         }
         LBRACE RBRACE
         {
           $$ = $1;
           $$->attr.name = savedName[--saveNamePos];
           $$->type += 2;
+          $$->lineno = savedLineNo[--saveLineNoPos];
         }
     ;
 
