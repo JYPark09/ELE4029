@@ -27,7 +27,10 @@ static int yylex(void); // added 11/2/11 to ensure no conflict with lex
 %token IF ELSE WHILE RETURN INT VOID
 %token ID NUM 
 %token ASSIGN EQ NE LT LE GT GE PLUS MINUS TIMES OVER LPAREN RPAREN LBRACE RBRACE LCURLY RCURLY SEMI COMMA
-%token ERROR 
+%token ERROR
+
+%nonassoc REDUCE
+%nonassoc ELSE
 
 %% /* Grammar for C-MINUS */
 
@@ -215,7 +218,7 @@ expression_stmt : expression SEMI
         { $$ = NULL; }
     ;
 
-selection_stmt : IF LPAREN expression RPAREN statement
+selection_stmt : IF LPAREN expression RPAREN statement %prec REDUCE
         {
           $$ = newStmtNode(IfK);
           $$->child[0] = $3;
