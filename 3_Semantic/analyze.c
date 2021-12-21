@@ -383,6 +383,7 @@ static void checkNode(TreeNode * t)
               if (t->child[0]->type != Integer)
               {
                 semanticError(t, "array index must be integer");
+                t->type = ErrorExp;
                 break;
               }
               t->type -= 2;
@@ -390,6 +391,7 @@ static void checkNode(TreeNode * t)
             else
             {
               semanticError(t, "array index is not allowed for non-array variable");
+              t->type = ErrorExp;
               break;
             }
           }
@@ -417,11 +419,13 @@ static void checkNode(TreeNode * t)
           if (params < l->func.params)
           {
             semanticError(t, "too few arguments for function '%s'", t->attr.name);
+            t->type = ErrorExp;
             break;
           }
           else if (params > l->func.params)
           {
             semanticError(t, "too many arguments to function '%s'", t->attr.name);
+            t->type = ErrorExp;
             break;
           }
 
@@ -432,6 +436,7 @@ static void checkNode(TreeNode * t)
             {
               semanticError(t, "type mismatch between parameter '%s' and argument '%s'",
                 l->func.param[p].name, param->attr.name);
+                t->type = ErrorExp;
               break;
             }
 
